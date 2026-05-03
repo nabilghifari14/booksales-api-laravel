@@ -1,0 +1,18 @@
+$kind: http-request
+name: Login
+url: http://localhost:8000/api/transactions
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"email\": \"customer@gmail.com\",\r
+
+    \    \"password\": \"password123\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzc3ODM0MTM3LCJleHAiOjE3Nzc4Mzc3MzcsIm5iZiI6MTc3NzgzNDEzOCwianRpIjoiaVIycTExZUJ6U25JbUk1aiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.fjKYNDVf8p4dY1VhpNcIfLCl0vebkmz6tIL-cKdnZSk
+order: 3922018259427562

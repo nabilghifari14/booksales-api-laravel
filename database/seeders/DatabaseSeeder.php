@@ -15,18 +15,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::create([
-            'name' => 'Admin nabil',
-            'email' => 'azzkynabil@mail.com',
-            'password' => bcrypt('nabilganteng123'),
-            'role' => 'admin',
-        ]);
 
         $this->call([
+            UserSeeder::class,
             AuthorSeeder::class,
             BookSeeder::class,
+            GenreSeeder::class,
+            TransactionSeeder::class
         ]);
     }
 }

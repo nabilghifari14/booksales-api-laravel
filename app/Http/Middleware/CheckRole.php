@@ -8,15 +8,15 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CheckRole
 {
-    public function handle(Request $request, Closure $next, string $role): Response
+    public function handle(Request $request, Closure $next, $role)
     {
-        // Pastikan user sudah login dan rolenya sesuai (misal: admin)
-        if (!$request->user() || $request->user()->role !== $role) {
-            return response()->json([
-                'message' => 'Akses ditolak! Anda bukan ' . $role
-            ], 403);
+        // Cek apakah user sudah login dan punya role yang sesuai[cite: 1]
+        if (auth()->check() && auth()->user()->role == $role) {
+            return $next($request);
         }
 
-        return $next($request);
+        return response()->json(['message' => "Akses ditolak! Anda bukan $role"], 403);
+
+            return $next($request);
     }
 }

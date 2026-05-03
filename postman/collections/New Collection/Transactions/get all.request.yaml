@@ -1,0 +1,10 @@
+$kind: http-request
+name: get all
+url: http://127.0.0.1:8000/api/transactions
+method: GET
+headers:
+  Accept: application/json
+body:
+  type: json
+  content: ""
+order: 1777830034898
