@@ -11,19 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('authors', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->text('bio')->nullable(); // Tambahkan baris ini
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            // Menambah kolom role dengan default 'user'
+            $table->string('role')->default('user')->after('password');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
+    
     public function down(): void
     {
-        Schema::dropIfExists('authors');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('role');
+        });
     }
 };

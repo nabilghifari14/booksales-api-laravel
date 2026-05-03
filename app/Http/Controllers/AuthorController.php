@@ -7,6 +7,22 @@ use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {
+    public function index()
+    {
+        try {
+            $authors = Author::all();
+            return response()->json([
+                'success' => true,
+                'data' => $authors
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ], 500);
+        }
+    }
+
     public function store(Request $request)
     {
         try {
@@ -27,7 +43,7 @@ class AuthorController extends Controller
         }
     }
         
-        public function show($id)
+    public function show($id)
     {
         $author = Author::find($id);
 
